@@ -147,6 +147,12 @@ namespace DebugPipeline
             // To read the build output in the console window, place a breakpoint on the
             // Debug.WriteLine statement below.
             Debug.WriteLine("Build " + (succeeded ? "Succeeded." : "Failed."));
+
+            if (!succeeded)
+            {
+                Console.WriteLine("Press enter key to continue.");
+                Console.ReadLine();
+            }
         }
 
         #region Additional, rarely-changing property values

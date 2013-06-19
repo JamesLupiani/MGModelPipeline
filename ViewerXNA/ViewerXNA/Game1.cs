@@ -18,6 +18,10 @@ namespace ViewerXNA
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Model model;
+
+        Matrix view;
+        Matrix projection;
 
         public Game1()
         {
@@ -48,6 +52,22 @@ namespace ViewerXNA
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            model = Content.Load<Model>(@"Rover\rover");
+
+            // Compute bounds for the whole model
+            var bounds = new BoundingSphere();
+            foreach (var mesh in model.Meshes)
+                bounds = BoundingSphere.CreateMerged(bounds, mesh.BoundingSphere);
+
+            var position = new Vector3(0, bounds.Radius * 100, bounds.Radius * -100.0f);
+            var target = Vector3.Zero;
+            var up = Vector3.Up;
+
+            Matrix.CreateLookAt(ref position, ref target, ref up, out view);
+
+            var fov = MathHelper.ToRadians(60);
+            var aspect = (float)Window.ClientBounds.Width / (float)Window.ClientBounds.Height;
+            Matrix.CreatePerspectiveFieldOfView(fov, aspect, 1, 1000, out projection);
         }
 
         /// <summary>
@@ -57,6 +77,7 @@ namespace ViewerXNA
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
+            spriteBatch.Dispose();
         }
 
         /// <summary>
@@ -84,6 +105,7 @@ namespace ViewerXNA
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            model.Draw(Matrix.Identity, view, projection);
 
             base.Draw(gameTime);
         }

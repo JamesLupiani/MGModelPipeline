@@ -45,7 +45,7 @@ namespace Microsoft.Xna.Framework.Content.Pipeline
             var materials = new List<MaterialContent>();
             foreach (var sceneMaterial in scene.Materials)
             {
-                var diffuse = sceneMaterial.GetTexture(TextureType.Diffuse, 0);
+                var diffuse = sceneMaterial.TextureDiffuse;
 
                 materials.Add(new BasicMaterialContent()
                 {
@@ -81,15 +81,15 @@ namespace Microsoft.Xna.Framework.Content.Pipeline
                 // no indirection is necessary.
                 //geom.Vertices.Positions.AddRange(mesh.Positions);
                 geom.Vertices.AddRange(Enumerable.Range(0, sceneMesh.VertexCount));
-                geom.Indices.AddRange(sceneMesh.GetIntIndices());
+                geom.Indices.AddRange(sceneMesh.GetIndices());
 
                 // Individual channels go here
                 if (sceneMesh.HasNormals)
                     geom.Vertices.Channels.Add(VertexChannelNames.Normal(), ToXna(sceneMesh.Normals));
 
-                for (var i = 0; i < sceneMesh.TextureCoordsChannelCount; i++)
+                for (var i = 0; i < sceneMesh.TextureCoordinateChannelCount; i++)
                     geom.Vertices.Channels.Add(VertexChannelNames.TextureCoordinate(i),
-                                               ToXnaVector2(sceneMesh.GetTextureCoords(i)));
+                                               ToXnaVector2(sceneMesh.TextureCoordinateChannels[i]));
 
                 mesh.Geometry.Add(geom);
                 rootNode.Children.Add(mesh);
@@ -153,31 +153,22 @@ namespace Microsoft.Xna.Framework.Content.Pipeline
             return result;
         }
 
-        public static Vector2[] ToXna(Vector2D[] vectors)
+        public static IEnumerable<Vector2> ToXna(IEnumerable<Vector2D> vectors)
         {
-            var result = new Vector2[vectors.Length];
-            for (var i = 0; i < vectors.Length; i++)
-                result[i] = new Vector2(vectors[i].X, vectors[i].Y);
-
-            return result;
+            foreach (var vector in vectors)
+                yield return new Vector2(vector.X, vector.Y);
         }
 
-        public static Vector2[] ToXnaVector2(Vector3D[] vectors)
+        public static IEnumerable<Vector2> ToXnaVector2(IEnumerable<Vector3D> vectors)
         {
-            var result = new Vector2[vectors.Length];
-            for (var i = 0; i < vectors.Length; i++)
-                result[i] = new Vector2(vectors[i].X, 1 - vectors[i].Y);
-
-            return result;
+            foreach (var vector in vectors)
+                yield return new Vector2(vector.X, 1 - vector.Y);
         }
 
-        public static Vector3[] ToXna(Vector3D[] vectors)
+        public static IEnumerable<Vector3> ToXna(IEnumerable<Vector3D> vectors)
         {
-            var result = new Vector3[vectors.Length];
-            for (var i = 0; i < vectors.Length; i++)
-                result[i] = new Vector3(vectors[i].X, vectors[i].Y, vectors[i].Z);
-
-            return result;
+            foreach (var vector in vectors)
+                yield return new Vector3(vector.X, vector.Y, vector.Z);
         }
     }
 
