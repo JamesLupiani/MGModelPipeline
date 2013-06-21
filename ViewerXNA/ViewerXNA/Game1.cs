@@ -52,15 +52,15 @@ namespace ViewerXNA
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            model = Content.Load<Model>(@"Rover\rover");
+            model = Content.Load<Model>(@"dude-mg");
 
             // Compute bounds for the whole model
             var bounds = new BoundingSphere();
             foreach (var mesh in model.Meshes)
                 bounds = BoundingSphere.CreateMerged(bounds, mesh.BoundingSphere);
 
-            var position = new Vector3(0, bounds.Radius * 100, bounds.Radius * -100.0f);
-            var target = Vector3.Zero;
+            var position = new Vector3(0, bounds.Radius, bounds.Radius * 2.5f);
+            var target = new Vector3(0, bounds.Radius, 0);
             var up = Vector3.Up;
 
             Matrix.CreateLookAt(ref position, ref target, ref up, out view);
