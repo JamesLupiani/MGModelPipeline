@@ -16,8 +16,11 @@ namespace Compare
 
     using MonoGameFbxImporter = monogame::Microsoft.Xna.Framework.Content.Pipeline.FbxImporter;
     using MonoGameNodeContent = xna::Microsoft.Xna.Framework.Content.Pipeline.Graphics.NodeContent;
+
     using System.Runtime.Serialization;
     using System.Xml;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Serialization;
 
     class Program
     {
@@ -52,36 +55,34 @@ namespace Compare
             var mgImporter = new MonoGameFbxImporter();
             var mgOutput = mgImporter.Import(absAssetPath, mgContext);
 
-            // XNA Serialize
-            var xnaSerializer = new DataContractSerializer(typeof(XnaNodeContent), new[]
-            {
-                typeof(TimeSpan),
-                typeof(xna::Microsoft.Xna.Framework.Vector3),
-                typeof(xna::Microsoft.Xna.Framework.Matrix),
-                typeof(xna::Microsoft.Xna.Framework.Content.Pipeline.Graphics.MeshContent),
-                typeof(xna::Microsoft.Xna.Framework.Content.Pipeline.Graphics.BasicMaterialContent),
-                typeof(xna::Microsoft.Xna.Framework.Content.Pipeline.Graphics.BoneContent),
-                typeof(xna::Microsoft.Xna.Framework.Content.Pipeline.Graphics.AnimationKeyframe),
-            }, int.MaxValue, false, true, null);
-            using (var xnaOut = XmlWriter.Create(Path.Combine(outDir, "xna.xml"), xmlSettings))
-                xnaSerializer.WriteObject(xnaOut, xnaOutput);
+            // Serialize for comparison
+            var serializer = JsonSerializer.Create(new JsonSerializerSettings
+                {
+                    ContractResolver = new OrderedContractResolver(),
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                    Formatting = Newtonsoft.Json.Formatting.Indented,
+                });
 
-            // MonoGame Serialize
-            var mgSerializer = new DataContractSerializer(typeof(MonoGameNodeContent), new[]
-            {
-                typeof(TimeSpan),
-                typeof(monogame::Microsoft.Xna.Framework.Vector3),
-                typeof(monogame::Microsoft.Xna.Framework.Matrix),
-                typeof(monogame::Microsoft.Xna.Framework.Content.Pipeline.Graphics.MeshContent),
-                typeof(monogame::Microsoft.Xna.Framework.Content.Pipeline.Graphics.BasicMaterialContent),
-                typeof(monogame::Microsoft.Xna.Framework.Content.Pipeline.Graphics.BoneContent),
-                typeof(monogame::Microsoft.Xna.Framework.Content.Pipeline.Graphics.AnimationKeyframe),
-            }, int.MaxValue, false, true, null);
-            using (var mgOut = XmlWriter.Create(Path.Combine(outDir, "mg.xml"), xmlSettings))
-                mgSerializer.WriteObject(mgOut, mgOutput);
+            Console.WriteLine("Serializing XNA version...");
+            using (var xnaOut = File.CreateText(Path.Combine(outDir, "xna.json")))
+                serializer.Serialize(xnaOut, xnaOutput);
 
+            Console.WriteLine("Serializing MonoGame version...");
+            using (var mgOut = File.CreateText(Path.Combine(outDir, "mg.json")))
+                serializer.Serialize(mgOut, mgOutput);
+
+            // Done
+            Console.WriteLine("Serialization complete.");
             Console.Write("Press any key to continue . . .");
             Console.ReadKey();
+        }
+    }
+
+    internal class OrderedContractResolver : DefaultContractResolver
+    {
+        protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization)
+        {
+            return base.CreateProperties(type, memberSerialization).OrderBy(p => p.PropertyName).ToList();
         }
     }
 }
