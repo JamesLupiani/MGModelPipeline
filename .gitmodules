@@ -1,6 +1,6 @@
 [submodule "MonoGame"]
 	path = MonoGame
-	url = git@github.com:SickheadGames/MonoGame.git
+	url = git@github.com:JamesLupiani/MonoGame.git
 [submodule "assimp"]
 	path = assimp
 	url = git@github.com:JamesLupiani/assimp.git
