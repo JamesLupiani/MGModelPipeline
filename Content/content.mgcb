@@ -1,0 +1,7 @@
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/build:Font/default.spritefont
+
+/importer:FbxImporter
+/processor:ModelProcessor
+/build:Dude/dude.fbx
