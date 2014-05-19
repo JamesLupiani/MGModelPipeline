@@ -66,7 +66,17 @@ namespace ModelViewer
         protected override void LoadContent()
         {
             _model = Content.Load<Model>(_fileName);
+            foreach (var mesh in _model.Meshes)
+            {
+                foreach (BasicEffect effect in mesh.Effects)
+                {
+                    effect.EnableDefaultLighting();
+                }
+            }
+
             _bones = new Matrix[_model.Bones.Count];
+            for (var i = 0; i < _bones.Count(); i++)
+                _bones[i] = Matrix.Identity;
 
             var bestFit = new BoundingSphere();
             foreach (var mesh in _model.Meshes)
@@ -76,12 +86,13 @@ namespace ModelViewer
             }
 
             _worldMatrix = Matrix.Identity;
-            _viewMatrix = Matrix.CreateTranslation(bestFit.Center) * Matrix.CreateTranslation(0, 0, bestFit.Radius * 1.5f);
-            _projMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, GraphicsDevice.Viewport.AspectRatio, 0.1f, bestFit.Radius * 2.0f);
+            _viewMatrix = Matrix.CreateTranslation(bestFit.Center) * Matrix.CreateTranslation(0, -bestFit.Radius * 2, -bestFit.Radius * 4);
+            _projMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, GraphicsDevice.Viewport.AspectRatio, 0.1f, bestFit.Radius * 5.0f);
         }
 
         protected override void Update(GameTime gameTime)
         {
+            _worldMatrix = Matrix.CreateRotationY(MathHelper.WrapAngle(MathHelper.TwoPi * (float)gameTime.TotalGameTime.TotalSeconds * 0.25f));
         }
 
         protected override void Draw(GameTime gameTime)
@@ -93,7 +104,7 @@ namespace ModelViewer
             {
                 foreach (IEffectMatrices em in mesh.Effects)
                 {
-                    em.World = _bones[mesh.ParentBone.Index];
+                    em.World = _worldMatrix;// *_bones[mesh.ParentBone.Index];
                     em.View = _viewMatrix;
                     em.Projection = _projMatrix;
                 }

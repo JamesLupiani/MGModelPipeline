@@ -2,6 +2,7 @@
 /processor:FontDescriptionProcessor
 /build:Font/default.spritefont
 
-/importer:FbxImporter
+/importer:OpenAssetImporter
 /processor:ModelProcessor
+/processorParam:TextureFormat=DxtCompressed
 /build:Dude/dude.fbx

@@ -49,6 +49,10 @@ msbuild /nologo /v:quiet MGCB.sln /p:Configuration=%MODE% /p:PlatformTarget=x64 
 /intermediateDir:%GAME_PATH%\obj\%MODE%\Content ^
 /outputDir:%GAME_PATH%\Content ^
 /@:content.mgcb %1
+@popd
+
+@echo Dumping experimental data...
+ParseXnb.exe ModelViewer\Content\Dude\dude.xnb > experiment.txt
 
 @echo Done.
 @pause
