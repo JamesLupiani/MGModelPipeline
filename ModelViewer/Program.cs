@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Threading;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
+using SkinnedModel;
 
 namespace ModelViewer
 {
@@ -30,6 +31,7 @@ namespace ModelViewer
 
         private Model _model;
         private Matrix[] _bones;
+        private AnimationPlayer _animationPlayer;
 
         private Matrix _worldMatrix;
         private Matrix _viewMatrix;
@@ -67,17 +69,20 @@ namespace ModelViewer
         protected override void LoadContent()
         {
             _model = Content.Load<Model>(_fileName);
-            foreach (var mesh in _model.Meshes)
+            var skinningData = _model.Tag as SkinningData;
+            if (skinningData != null)
             {
-                foreach (BasicEffect effect in mesh.Effects)
-                {
-                    effect.EnableDefaultLighting();
-                }
-            }
+                _animationPlayer = new AnimationPlayer(skinningData);
+                var clip = skinningData.AnimationClips["Take 001"];
+                _animationPlayer.StartClip(clip);
 
-            _bones = new Matrix[_model.Bones.Count];
-            for (var i = 0; i < _bones.Count(); i++)
-                _bones[i] = Matrix.Identity;
+                _bones = _animationPlayer.GetSkinTransforms();
+            }
+            else
+            {
+                _bones = new Matrix[_model.Bones.Count];
+                _model.CopyAbsoluteBoneTransformsTo(_bones);
+            }
 
             var bestFit = new BoundingSphere();
             foreach (var mesh in _model.Meshes)
@@ -89,25 +94,51 @@ namespace ModelViewer
             _worldMatrix = Matrix.Identity;
             _viewMatrix = Matrix.CreateTranslation(bestFit.Center) * Matrix.CreateTranslation(0, 0, -bestFit.Radius * 4);
             _projMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, GraphicsDevice.Viewport.AspectRatio, 0.1f, bestFit.Radius * 5.0f);
+
+            foreach (var mesh in _model.Meshes)
+            {
+                foreach (var effect in mesh.Effects)
+                {
+                    var em = effect as IEffectMatrices;
+                    em.World = _worldMatrix;
+                    em.View = _viewMatrix;
+                    em.Projection = _projMatrix;
+
+                    var basic = effect as BasicEffect;
+                    if (basic != null)
+                        basic.EnableDefaultLighting();
+
+                    var skinned = effect as SkinnedEffect;
+                    if (skinned != null)
+                        skinned.EnableDefaultLighting();
+                }
+            }
         }
 
         protected override void Update(GameTime gameTime)
         {
             _worldMatrix = Matrix.CreateRotationY(MathHelper.WrapAngle(MathHelper.TwoPi * (float)gameTime.TotalGameTime.TotalSeconds * 0.25f));
+
+            if (_animationPlayer != null)
+                _animationPlayer.Update(gameTime.ElapsedGameTime, true, Matrix.Identity);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            _model.CopyAbsoluteBoneTransformsTo(_bones);
             foreach (var mesh in _model.Meshes)
             {
-                foreach (IEffectMatrices em in mesh.Effects)
+                foreach (var effect in mesh.Effects)
                 {
+                    var em = effect as IEffectMatrices;
                     em.World = _worldMatrix *_bones[mesh.ParentBone.Index];
                     em.View = _viewMatrix;
                     em.Projection = _projMatrix;
+
+                    var skinned = effect as SkinnedEffect;
+                    if (skinned != null)
+                        skinned.SetBoneTransforms(_bones);
                 }
 
                 mesh.Draw();

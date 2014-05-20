@@ -5,5 +5,9 @@
 /importer:OpenAssetImporter
 /processor:ModelProcessor
 /processorParam:TextureFormat=DxtCompressed
-/build:Dude/dude.fbx
 /build:Ship/ship.fbx
+
+/processor:SkinnedModelProcessor
+/processorParam:TextureFormat=DxtCompressed
+/build:Dude/dude.fbx
+

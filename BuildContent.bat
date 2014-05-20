@@ -46,6 +46,8 @@ msbuild /nologo /v:quiet MGCB.sln /p:Configuration=%MODE% /p:PlatformTarget=x64 
 /rebuild ^
 /config:%MODE% ^
 /platform:Windows ^
+/reference:..\SkinnedModelPipeline\bin\%MODE%\SkinnedModel.dll ^
+/reference:..\SkinnedModelPipeline\bin\%MODE%\SkinnedModelPipeline.dll ^
 /intermediateDir:%GAME_PATH%\obj\%MODE%\Content ^
 /outputDir:%GAME_PATH%\Content ^
 /@:content.mgcb %1
