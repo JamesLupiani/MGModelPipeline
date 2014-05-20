@@ -6,3 +6,4 @@
 /processor:ModelProcessor
 /processorParam:TextureFormat=DxtCompressed
 /build:Dude/dude.fbx
+/build:Ship/ship.fbx

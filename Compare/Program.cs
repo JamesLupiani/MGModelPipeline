@@ -25,7 +25,7 @@ namespace Compare
     {
         static void Main(string[] args)
         {
-            const string asset = "dude.fbx";
+            const string asset = @"Dude\dude.fbx";//Ship\ship.fbx";
             var rootDir = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\"));
             var contentDir = Path.GetFullPath(Path.Combine(rootDir, "Content"));
             var intDir = Path.GetFullPath(Path.Combine(rootDir, "obj"));

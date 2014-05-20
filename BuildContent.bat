@@ -52,7 +52,8 @@ msbuild /nologo /v:quiet MGCB.sln /p:Configuration=%MODE% /p:PlatformTarget=x64 
 @popd
 
 @echo Dumping experimental data...
-ParseXnb.exe ModelViewer\Content\Dude\dude.xnb > experiment.txt
+ParseXnb.exe ModelViewer\Content\Dude\dude.xnb > experiment-dude.txt
+ParseXnb.exe ModelViewer\Content\Ship\ship.xnb > experiment-ship.txt
 
 @echo Done.
 @pause

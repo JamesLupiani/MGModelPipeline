@@ -1,0 +1,258 @@
+Target platform: Windows
+Graphics profile: HiDef
+Type readers:
+    Microsoft.Xna.Framework.Content.ModelReader (version 0)
+    Microsoft.Xna.Framework.Content.StringReader (version 0)
+    Microsoft.Xna.Framework.Content.VertexBufferReader (version 0)
+    Microsoft.Xna.Framework.Content.VertexDeclarationReader (version 0)
+    Microsoft.Xna.Framework.Content.IndexBufferReader, MonoGame.Framework, Version=3.1.2.0, Culture=neutral, PublicKeyToken=null (version 0)
+    Microsoft.Xna.Framework.Content.BasicEffectReader (version 0)
+Asset:
+    Type: Microsoft.Xna.Framework.Graphics.Model
+    Bone count: 1
+    Bone 0:
+        Name:
+            Type: System.String
+            'p1_wedge_geo1'
+        Transform:
+            { 1, 0, 0, 0 }
+            { 0, 1, 0, 0 }
+            { 0, 0, 1, 0 }
+            { 0, 0, 0, 1 }
+    Bone 0 hierarchy:
+        Parent: null
+    Mesh count: 1
+    Mesh 0
+        Mesh name:
+            Type: System.String
+            'p1_wedge_geo1'
+        Mesh parent: bone #0
+        Mesh bounds:
+            Center: { 2.6089, -17.3683, 10.066 }
+            Radius: 2145.41
+        Mesh tag:
+            null
+        Mesh part count: 3
+        Mesh part 0
+            Vertex offset: 0
+            Num vertices: 6679
+            Start index: 0
+            Primitive count: 11857
+            Mesh part tag:
+                null
+            Vertex buffer: shared resource #0
+            Index buffer: shared resource #1
+            Effect: shared resource #2
+        Mesh part 1
+            Vertex offset: 6679
+            Num vertices: 2368
+            Start index: 35571
+            Primitive count: 4128
+            Mesh part tag:
+                null
+            Vertex buffer: shared resource #0
+            Index buffer: shared resource #1
+            Effect: shared resource #3
+        Mesh part 2
+            Vertex offset: 9047
+            Num vertices: 81
+            Start index: 47955
+            Primitive count: 133
+            Mesh part tag:
+                null
+            Vertex buffer: shared resource #0
+            Index buffer: shared resource #1
+            Effect: shared resource #4
+    Model root: bone #0
+    Model tag:
+        null
+Shared resource 0:
+    Type: Microsoft.Xna.Framework.Graphics.VertexBuffer
+    Vertex declaration:
+        Vertex stride: 36
+        Element count: 4
+        Element 0:
+            Offset: 0
+            Element format: Vector3
+            Element usage: Position
+            Usage index: 0
+        Element 1:
+            Offset: 12
+            Element format: Vector3
+            Element usage: Normal
+            Usage index: 0
+        Element 2:
+            Offset: 24
+            Element format: Vector2
+            Element usage: TextureCoordinate
+            Usage index: 0
+        Element 3:
+            Offset: 32
+            Element format: Color
+            Element usage: Color
+            Usage index: 0
+    Vertex count: 9128
+    Vertex data: 328608 bytes
+        DA, DD, 8A, C2, C6, 3A, 6D, 42, E1, 38, 46, C4, 26, 8B, 61, BF
+        18, 35, E4, 3E, 53, 4E, 22, BE, AB, 60, 36, 3F, D0, 1C, F6, 3D
+        FF, FF, FF, FF, F3, 80, 5F, C2, E7, 10, 94, 42, 62, A9, 49, C4
+        F2, 75, 31, BF, 52, 5B, 34, 3F, 13, B3, 1B, BE, 5E, 32, 38, 3F
+        D8, EE, EF, 3D, FF, FF, FF, FF, 10, 79, 4C, C2, E1, EC, 89, 42
+        32, 18, 56, C4, 4E, A6, 3D, BF, 55, 15, 28, 3F, A3, 29, 11, BE
+        58, DB, 38, 3F, 60, E4, D0, 3D, FF, FF, FF, FF, D1, E3, 74, C2
+        0D, 74, 54, 42, 5F, 61, 56, C4, 02, 8A, 66, BF, 40, A1, CF, 3E
+        32, 82, 20, BE, 19, 50, 37, 3F, 48, 35, CD, 3D, FF, FF, FF, FF
+        BD, 19, 1E, C2, 59, DA, A7, 42, E8, CA, 4B, C4, 70, 4D, E5, BE
+        46, 78, 62, 3F, 03, D1, 04, BE, 92, CF, 39, 3F, 28, 05, EC, 3D
+        FF, FF, FF, FF, 06, B3, 1A, C2, C1, 7D, 9D, 42, 93, 28, 56, C4
+        1A, B5, 00, BF, E8, 0F, 5B, 3F, E7, B7, FA, BD, 7B, E1, 39, 3F
+        40, B9, D0, 3D, FF, FF, FF, FF, AE, 2A, 19, C2, 33, 7C, 94, 42
+        3A, FB, 5D, C4, F1, 05, 12, BF, 0B, 86, 4E, 3F, A4, 0C, 1E, BE
+        8E, E9, 39, 3F, B0, 1F, BC, 3D, FF, FF, FF, FF, D7, 80, 35, C2
+        3B, 35, 83, 42, BE, 23, 61, C4, 5F, A6, 43, BF, BC, 56, 1F, 3F
+        D8, E4, 2C, BE, E2, 32, 39, 3F, E8, EF, B2, 3D, FF, FF, FF, FF
+        04, 94, 53, C2, E0, 1C, 45, 42, B0, 76, 64, C4, AA, 6D, 67, BF
+        18, FE, C7, 3E, 18, E2, 31, BE, 4F, 09, 38, 3F, D0, 6D, A8, 3D
+        FF, FF, FF, FF, 50, 7F, FC, 3F, ED, E1, B3, 42, 16, BF, 51, C4
+        89, 78, F2, B9, 61, 08, 7E, 3F, 25, 68, FD, BD, 60, 6F, 3D, 3F
+        80, 57, DC, 3D, FF, FF, FF, FF, AD, 9B, 1E, C1, C3, 05, A7, 42
+        77, 8B, 5D, C4, 22, EA, 06, BE, DD, BC, 7B, 3F, AD, 27, 00, BE
+        5F, 3F, 3C, 3F, F0, 45, BD, 3D, FF, FF, FF, FF, 08, 40, C3, C1
+        61, 62, A6, 42, 7C, A7, 58, C4, F4, FA, 92, BE, 81, 15, 73, 3F
+        25, 54, 01, BE, 12, 0E, 3B, 3F, C0, 26, CA, 3D, FF, FF, FF, FF
+        7F, EA, A5, C1, B9, 68, B2, 42, 7E, 1F, 4E, C4, 8B, A1, 5A, BE
+        15, F6, 77, 3F, CF, 75, 02, BE, 4D, 5B, 3B, 3F, 28, E2, E5, 3D
+        FF, FF, FF, FF, 22, 8D, 92, C1, D9, FB, 97, 42, 9A, CE, 67, C4
+        90, 4E, 8C, BE, 25, C1, 72, 3F, E7, 2E, 24, BE, 4B, 8E, 3B, 3F
+        00, 40, A2, 3D, FF, FF, FF, FF, BF, 6B, EE, C1, C1, 78, 97, 42
+        DA, 49, 62, C4, 5D, 4F, CE, BE, D2, 78, 66, 3F, F7, A6, 28, BE
+        63, 9C, 3A, 3F, 20, C8, B0, 3D, FF, FF, FF, FF, 93, CB, FD, C1
+        AE, 4C, 43, 42, BB, 17, 7B, C4, AD, 62, 45, BF, 13, CA, 17, 3F
+        96, D2, 6D, BE, 83, 27, 3A, 3F, 80, 3D, 5D, 3D, FF, FF, FF, FF
+        5E, E3, 2D, C2, D8, A6, 3F, 42, B5, 65, 70, C4, 97, 72, 5E, BF
+        68, 87, E6, 3E, 46, 6A, 52, BE, 9E, FB, 38, 3F, C8, EC, 89, 3D
+        FF, FF, FF, FF, 86, BA, 12, C2, 2B, A8, 81, 42, 9F, 3D, 6A, C4
+        11, A4, 27, BF, B8, 88, 3A, 3F, F6, 6D, 4D, BE, 75, 0B, 3A, 3F
+        60, D7, 9B, 3D, FF, FF, FF, FF, F1, 7A, CB, C1, A9, 20, 83, 42
+        E4, 72, 71, C4, 4C, 9A, FA, BE, 08, 7E, 58, 3F, 22, DE, 59, BE
+        62, F8, 3A, 3F, 28, DC, 88, 3D, FF, FF, FF, FF, 5A, EE, 01, 40
+        88, 0B, 27, C3, 6C, 5D, 38, C4, 00, 00, 00, 00, 74, EE, 7C, BF
+        84, 12, 1E, BE, 5A, D6, F2, 3E, C8, 69, E7, 3D, FF, FF, FF, FF
+        95, E5, 27, C1, 2E, 8A, 12, C3, 21, 73, 57, C4, 61, 81, 1D, BD
+        53, 3D, 7C, BF, E8, 60, 2A, BE, 1B, F2, F4, 3E, 98, 94, 95, 3D
+        FF, FF, FF, FF, A2, E4, CC, 3F, 72, F4, 09, C3, 3D, 1A, 64, C4
+        00, 00, 00, 00, EB, DA, 7B, BF, 44, 85, 37, BE, 74, F9, F2, 3E
+        80, 7B, 68, 3D, FF, FF, FF, FF, 78, AF, 5F, 41, 2E, 8A, 12, C3
+        21, 73, 57, C4, 65, 9E, 1F, 3D, CD, 39, 7C, BF, E5, 94, 2A, BE
+        F3, EA, F0, 3E, 78, 8A, 95, 3D, FF, FF, FF, FF, F5, C4, 91, C1
+        AD, 6E, 05, C3, 13, F5, 68, C4, EB, 23, B4, BD, 64, 56, 7A, BF
+        ED, 52, 42, BE, 79, 3E, F6, 3E, 00, FA, 4E, 3D, FF, FF, FF, FF
+        DC, C6, DC, C0, 0A, C1, 00, C3, A6, DB, 6F, C4, FD, FC, 68, BD
+        A5, 57, 7A, BF, 0C, 04, 4E, BE, 1D, 64, F4, 3E, A0, 99, 2A, 3D
+        FF, FF, FF, FF, B0, 6D, 98, 3F, 81, 05, FA, C2, 20, 90, 74, C4
+        00, 00, 00, 00, 79, AA, 79, BF, BE, 60, 62, BE, 1F, 11, F3, 3E
+        40, CB, 11, 3D, FF, FF, FF, FF, E9, 4A, 18, 41, 0A, C1, 00, C3
+        A6, DB, 6F, C4, 7A, EA, 6B, 3D, 0D, 4B, 7A, BF, 33, C3, 4E, BE
+        6C, B0, F1, 3E, 40, 8C, 2A, 3D, FF, FF, FF, FF, 78, AF, 5F, 41
+        2E, 8A, 12, C3, 21, 73, 57, C4, 65, 9E, 1F, 3D, CD, 39, 7C, BF
+        E5, 94, 2A, BE, 75, C6, 7C, 3F, 80, C4, 93, 3D, FF, FF, FF, FF
+        A2, E4, CC, 3F, 72, F4, 09, C3, 3D, 1A, 64, C4, 00, 00, 00, 00
+        EB, DA, 7B, BF, 44, 85, 37, BE, 53, C3, 7D, 3F, 40, C7, 64, 3D
+        {snip: not bothering to print the remaining 327569 bytes}
+Shared resource 1:
+    Type: Microsoft.Xna.Framework.Graphics.IndexBuffer
+    Index format: 16 bit
+    Index data: 96708 bytes
+        03, 00, 01, 00, 00, 00, 1C, 01, 03, 00, 00, 00, DB, 03, 1C, 01
+        00, 00, 01, 00, DB, 03, 00, 00, 03, 00, 02, 00, 01, 00, 02, 00
+        04, 00, 01, 00, 04, 00, 2A, 06, 01, 00, 01, 00, 2A, 06, DB, 03
+        DB, 03, DA, 03, 1C, 01, DF, 03, DA, 03, DB, 03, 25, 06, DF, 03
+        DB, 03, 25, 06, DB, 03, 2A, 06, 29, 06, 25, 06, 2A, 06, 04, 00
+        29, 06, 2A, 06, 25, 06, 24, 06, 23, 06, 25, 06, 23, 06, 22, 06
+        DF, 03, 25, 06, 22, 06, 29, 06, 24, 06, 25, 06, 28, 06, 29, 06
+        04, 00, 27, 06, 24, 06, 29, 06, 27, 06, 29, 06, 28, 06, 23, 06
+        24, 06, 27, 06, 22, 06, 23, 06, 12, 06, 23, 06, 27, 06, 26, 06
+        12, 06, 23, 06, 26, 06, EE, 03, 22, 06, 15, 06, 22, 06, 12, 06
+        15, 06, DF, 03, 22, 06, EE, 03, F0, 03, EF, 03, EE, 03, F0, 03
+        EE, 03, ED, 03, EF, 03, DF, 03, EE, 03, EE, 03, 15, 06, ED, 03
+        15, 06, 14, 06, F0, 03, 15, 06, F0, 03, ED, 03, 12, 06, 14, 06
+        15, 06, EB, 03, EF, 03, F0, 03, 14, 06, EB, 03, F0, 03, EF, 03
+        DE, 03, DF, 03, EC, 03, DE, 03, EF, 03, EB, 03, EC, 03, EF, 03
+        DF, 03, DE, 03, DA, 03, DE, 03, DD, 03, DC, 03, DE, 03, DC, 03
+        DA, 03, EC, 03, DD, 03, DE, 03, EA, 03, EC, 03, EB, 03, E8, 03
+        DD, 03, EC, 03, E8, 03, EC, 03, EA, 03, DC, 03, DD, 03, E3, 03
+        E3, 03, DD, 03, E6, 03, E6, 03, DD, 03, E8, 03, DA, 03, DC, 03
+        19, 01, DC, 03, E3, 03, E0, 03, E0, 03, 19, 01, DC, 03, DA, 03
+        19, 01, 1C, 01, 17, 01, 1A, 01, 19, 01, 19, 01, 1A, 01, 1B, 01
+        19, 01, 1B, 01, 1C, 01, E0, 03, 17, 01, 19, 01, E1, 03, 17, 01
+        E0, 03, E1, 03, E0, 03, E3, 03, 18, 01, 17, 01, 16, 01, 17, 01
+        18, 01, 1A, 01, E1, 03, 16, 01, 17, 01, 18, 01, 12, 01, 1A, 01
+        1A, 01, 12, 01, 1D, 01, 1A, 01, 1D, 01, 1B, 01, 1C, 01, 1B, 01
+        03, 00, 1B, 01, 1D, 01, 08, 00, 1B, 01, 08, 00, 03, 00, 1D, 01
+        12, 01, 13, 01, 1D, 01, 13, 01, 1F, 01, 08, 00, 1D, 01, 1F, 01
+        13, 01, 12, 01, 11, 01, 18, 01, 11, 01, 12, 01, 13, 01, 11, 01
+        0E, 01, 14, 01, 13, 01, 0E, 01, 1F, 01, 13, 01, 14, 01, 10, 00
+        1F, 01, 1E, 01, 1F, 01, 14, 01, 1E, 01, 08, 00, 1F, 01, 10, 00
+        12, 00, 11, 00, 10, 00, 12, 00, 10, 00, 0F, 00, 11, 00, 08, 00
+        10, 00, 10, 00, 1E, 01, 0F, 00, 1E, 01, C6, 05, C5, 05, 1E, 01
+        C5, 05, 0F, 00, 14, 01, C6, 05, 1E, 01, A1, 05, 12, 00, 0F, 00
+        C5, 05, A1, 05, 0F, 00, 0D, 00, 11, 00, 12, 00, A1, 05, A0, 05
+        12, 00, A0, 05, 0D, 00, 12, 00, A5, 05, A0, 05, A1, 05, C5, 05
+        CE, 05, A1, 05, CE, 05, A5, 05, A1, 05, C6, 05, C7, 05, C5, 05
+        C7, 05, CE, 05, C5, 05, CE, 05, CF, 05, A5, 05, D1, 05, CF, 05
+        CE, 05, C7, 05, D1, 05, CE, 05, C6, 05, C8, 05, C7, 05, C9, 05
+        C7, 05, C8, 05, D1, 05, C7, 05, C9, 05, D1, 05, D0, 05, CF, 05
+        C9, 05, D0, 05, D1, 05, CF, 05, D0, 05, D5, 05, CF, 05, D5, 05
+        D3, 05, A5, 05, CF, 05, D3, 05, D6, 05, D5, 05, D0, 05, D6, 05
+        D0, 05, D8, 05, C9, 05, D8, 05, D0, 05, D3, 05, D5, 05, D4, 05
+        D6, 05, D4, 05, D5, 05, A8, 05, D3, 05, D2, 05, D3, 05, D4, 05
+        D2, 05, A5, 05, D3, 05, A8, 05, D4, 05, DD, 05, DA, 05, D4, 05
+        DA, 05, D2, 05, DD, 05, D4, 05, D6, 05, A8, 05, D2, 05, 05, 01
+        D2, 05, DA, 05, 08, 01, D2, 05, 08, 01, 05, 01, DA, 05, DB, 05
+        03, 01, DA, 05, 03, 01, 08, 01, DD, 05, DB, 05, DA, 05, DD, 05
+        DC, 05, DB, 05, D6, 05, DC, 05, DD, 05, DB, 05, DC, 05, E1, 05
+        DB, 05, E1, 05, DF, 05, 03, 01, DB, 05, DF, 05, E2, 05, E1, 05
+        DC, 05, DC, 05, E4, 05, E3, 05, DC, 05, E3, 05, E2, 05, D6, 05
+        E4, 05, DC, 05, D8, 05, D7, 05, D6, 05, D6, 05, E5, 05, E4, 05
+        C9, 05, D9, 05, D8, 05, C9, 05, C8, 05, C2, 05, C9, 05, C2, 05
+        CB, 05, CB, 05, CA, 05, C9, 05, C1, 05, C2, 05, C8, 05, C1, 05
+        C8, 05, C6, 05, C3, 05, C2, 05, C1, 05, CD, 05, CB, 05, C2, 05
+        CD, 05, C2, 05, C3, 05, BF, 05, C1, 05, 14, 01, C3, 05, C1, 05
+        BF, 05, 14, 01, C1, 05, C6, 05, C4, 05, C3, 05, BF, 05, CD, 05
+        C3, 05, C4, 05, CD, 05, C4, 05, CC, 05, C4, 05, BF, 05, C0, 05
+        EA, 05, EB, 05, C4, 05, EA, 05, C4, 05, C0, 05, CC, 05, C4, 05
+        EB, 05, C0, 05, BF, 05, 0F, 01, BF, 05, 14, 01, 0F, 01, 14, 01
+        0E, 01, 0F, 01, 0F, 01, 0E, 01, 0D, 01, 0F, 01, 0D, 01, 55, 00
+        C0, 05, 0F, 01, 55, 00, B9, 05, EA, 05, C0, 05, B9, 05, C0, 05
+        55, 00, 58, 00, 56, 00, 55, 00, 0D, 01, 58, 00, 55, 00, 56, 00
+        B9, 05, 55, 00, 0E, 01, 10, 01, 0D, 01, 0D, 01, 8C, 01, 58, 00
+        10, 01, 8C, 01, 0D, 01, 0E, 01, 11, 01, 10, 01, 18, 01, 10, 01
+        11, 01, 18, 01, 15, 01, 10, 01, 10, 01, 8F, 01, 8C, 01, 10, 01
+        {snip: not bothering to print the remaining 95669 bytes}
+Shared resource 2:
+    Type: Microsoft.Xna.Framework.Graphics.BasicEffect
+    Texture reference: 'ShipDiffuse_0'
+    Diffuse color: { 1, 1, 1 }
+    Emissive color: { 0, 0, 0 }
+    Specular color: { 0.554, 0.415215, 0.126312 }
+    Specular power: 29.54
+    Alpha: 1
+    Vertex color enabled: true
+Shared resource 3:
+    Type: Microsoft.Xna.Framework.Graphics.BasicEffect
+    Texture reference: ''
+    Diffuse color: { 0.605, 0.974259, 1 }
+    Emissive color: { 0, 0, 0 }
+    Specular color: { 0.5, 0.5, 0.5 }
+    Specular power: 20
+    Alpha: 1
+    Vertex color enabled: true
+Shared resource 4:
+    Type: Microsoft.Xna.Framework.Graphics.BasicEffect
+    Texture reference: ''
+    Diffuse color: { 1, 0.991813, 0.982 }
+    Emissive color: { 0, 0, 0 }
+    Specular color: { 0.2, 0.2, 0.2 }
+    Specular power: 6.4
+    Alpha: 1
+    Vertex color enabled: true

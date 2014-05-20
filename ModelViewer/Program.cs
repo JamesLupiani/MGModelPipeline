@@ -55,6 +55,7 @@ namespace ModelViewer
             else
             {
                 _fileName = @"Dude\dude";
+                //_fileName = @"Ship\ship";
             }
         }
 
@@ -86,7 +87,7 @@ namespace ModelViewer
             }
 
             _worldMatrix = Matrix.Identity;
-            _viewMatrix = Matrix.CreateTranslation(bestFit.Center) * Matrix.CreateTranslation(0, -bestFit.Radius * 2, -bestFit.Radius * 4);
+            _viewMatrix = Matrix.CreateTranslation(bestFit.Center) * Matrix.CreateTranslation(0, 0, -bestFit.Radius * 4);
             _projMatrix = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, GraphicsDevice.Viewport.AspectRatio, 0.1f, bestFit.Radius * 5.0f);
         }
 
@@ -104,7 +105,7 @@ namespace ModelViewer
             {
                 foreach (IEffectMatrices em in mesh.Effects)
                 {
-                    em.World = _worldMatrix;// *_bones[mesh.ParentBone.Index];
+                    em.World = _worldMatrix *_bones[mesh.ParentBone.Index];
                     em.View = _viewMatrix;
                     em.Projection = _projMatrix;
                 }
