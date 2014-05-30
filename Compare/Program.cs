@@ -12,9 +12,11 @@ namespace Compare
 
     using XnaFbxImporter = xna::Microsoft.Xna.Framework.Content.Pipeline.FbxImporter;
     using XnaNodeContent = xna::Microsoft.Xna.Framework.Content.Pipeline.Graphics.NodeContent;
+    using XnaBoneContent = xna::Microsoft.Xna.Framework.Content.Pipeline.Graphics.BoneContent;
 
     using MonoGameFbxImporter = monogame::Microsoft.Xna.Framework.Content.Pipeline.FbxImporter;
-    using MonoGameNodeContent = xna::Microsoft.Xna.Framework.Content.Pipeline.Graphics.NodeContent;
+    using MonoGameNodeContent = monogame::Microsoft.Xna.Framework.Content.Pipeline.Graphics.NodeContent;
+    using MonoGameBoneContent = monogame::Microsoft.Xna.Framework.Content.Pipeline.Graphics.BoneContent;
 
     using System.Runtime.Serialization;
     using System.Xml;
@@ -62,13 +64,28 @@ namespace Compare
                     Formatting = Newtonsoft.Json.Formatting.Indented,
                 });
 
+            var xnaSkel = xnaOutput.Children[1] as XnaBoneContent;
+            var mgSkel = mgOutput.Children[1] as MonoGameBoneContent;
+
+            const string channel = "L_Ankle1";//"Head";
+
             Console.WriteLine("Serializing XNA version...");
             using (var xnaOut = File.CreateText(Path.Combine(outDir, "xna.json")))
-                serializer.Serialize(xnaOut, xnaOutput);
+            {
+                var obj = xnaSkel.Animations["Take 001"].Channels[channel].ToList();
+                foreach (var item in obj)
+                    xnaOut.WriteLine(string.Format("{0,-17}: {1}", item.Time, item.Transform.ToString()));
+                //serializer.Serialize(xnaOut, obj);
+            }
 
             Console.WriteLine("Serializing MonoGame version...");
             using (var mgOut = File.CreateText(Path.Combine(outDir, "mg.json")))
-                serializer.Serialize(mgOut, mgOutput);
+            {
+                var obj = mgSkel.Animations["Take 001"].Channels[channel].ToList();
+                foreach (var item in obj)
+                    mgOut.WriteLine(string.Format("{0,-17}: {1}", item.Time, item.Transform.ToString()));
+                //serializer.Serialize(mgOut, obj);
+            }
 
             // Done
             Console.WriteLine("Serialization complete.");

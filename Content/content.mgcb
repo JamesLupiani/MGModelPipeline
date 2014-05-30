@@ -1,13 +1,13 @@
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/build:Font/default.spritefont
+#/importer:FontDescriptionImporter
+#/processor:FontDescriptionProcessor
+#/build:Font/default.spritefont
 
 /importer:OpenAssetImporter
-/processor:ModelProcessor
-/processorParam:TextureFormat=DxtCompressed
-/build:Ship/ship.fbx
+#/processor:ModelProcessor
+#/processorParam:TextureFormat=DxtCompressed
+#/build:Ship/ship.fbx
 
 /processor:SkinnedModelProcessor
-/processorParam:TextureFormat=DxtCompressed
+#/processorParam:TextureFormat=DxtCompressed
 /build:Dude/dude.fbx
 

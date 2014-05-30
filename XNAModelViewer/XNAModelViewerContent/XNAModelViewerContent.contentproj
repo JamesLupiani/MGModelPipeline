@@ -34,8 +34,7 @@
       <Link>Dude\dude.fbx</Link>
       <Name>dude</Name>
       <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <ProcessorParameters_DefaultEffect>AlphaTestEffect</ProcessorParameters_DefaultEffect>
+      <Processor>SkinnedModelProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -45,6 +44,16 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\XNASkinnedModelPipeline\XNASkinnedModelPipeline.csproj">
+      <Project>{677b0c4d-461b-4042-bcf3-f407b9241829}</Project>
+      <Name>XNASkinnedModelPipeline</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\XNASkinnedModel\XNASkinnedModel.csproj">
+      <Project>{9a976e97-1a2c-4dfb-947b-0ce228ca9a1e}</Project>
+      <Name>XNASkinnedModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
